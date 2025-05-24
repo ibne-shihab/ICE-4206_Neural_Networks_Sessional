@@ -1,0 +1,43 @@
+step-1: install anaconda navigator or miniconda.
+step-2: install Microsoft visual C++.
+step-3: install GeForce Experience and if its already installed then update the NIVIDA studio driver.
+Step-4: Uninstall CUDA>11.2 from Control Panel> uninstall a program> ALL software from NVIDIA expect NVIDIA GeForce Experience, NVIDIA Studio Driver and NVIDIA Audio Drive.
+Step-5: install NVIDIA Cuda 11.2 version by searching and downloading form internet "NVIDIA CUDA Archive" then NVIDIA CUDA Toolkit 11.2 for windows> 64bit> windows 10 ( For Windows 11 as well) > local exe
+Step-6: Download Cudnn version 8.1 compactable for CUDA 11.1
+Step-7: Unzip the CUDNN zip file and extract in the "C" drive
+step-8: Search Environment Variable> System Variable> path > Edit> New, then we have to manually add the sub folders path from Step-7 here.
+Step-9: open anaconda prompt
+step-10: now type the following in anaconda prompt
+
+	line-1: conda create --name tf python=3.9
+	line-2: conda deactivate
+	line-3: conda activate tf
+	line-4: nvidia-smi (if cuda install successfully then a box will show in command prompt and  the cuda version will also mentioned, 	if not box containing cuda information appears then cuda is no installed properly, have to start from the begining)
+	line-5: codna install pip
+	line-6: pip install "tensorflow<2.11" 
+	line-7: pip install "numpy<2"
+	line-8: pip install "pybind11>=2.12"
+	line-9: python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+	----[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')] this type of output means GPU detected by tensorflow-----
+	line-10: pip install ipykernel
+	line-11: python -m ipykernel install --user --name=tf
+	line-12: conda deactivate
+Step-11: Now open jupyter notebook> new notebook> kernel =tf and run the code.
+
+*****for Non_GPU PC just use pip install tensorflow after downloading miniconda and start from step 10***
+
+-------------------------------------for pytorch-----------------------------------------------------
+
+
+Step-1: open anaconda prompt
+step-2: now type the following in anaconda prompt
+
+	line-1: conda create --name pytorch
+	line-2: conda deactivate
+	line-3: conda activate pytorch
+	line-4: conda install pip
+	line-5: pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+	line-6: pip install ipykernel
+	line-7: python -m ipykernel install --user --name=pytorch
+	line-8: conda deactivate
+Step-3: Now open jupyter notebook> new notebook> kernel =pytorch and run the code.
